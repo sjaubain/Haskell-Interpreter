@@ -62,11 +62,11 @@ let toto = 7 in toto * (let toto = 4 in toto + toto)
 
 En effet, si une deuxième variable *toto* était ajoutée en fin de liste dans la deuxième expression, la première variable serait prise en compte à la place dans l'évaluation et on n'obtiendrait pas le résultat escompté.
 
-* Utilisation d'une variable
+* **Utilisation d'une variable**
 
 L'utilisation d'une variable par son nom dans une expression consiste donc simplement à appeler la fonction annaexe *getValue* qui s'occupera de retourner la valeur associée au nom de variable. Il s'agit en fait de l'évaluation du type d'expression `Str String`.
 
-* Appel de fonctions
+* **Appel de fonctions**
 
 L'appel d'une fonction à un paramètre ssemble furieusement à l'énoncé précédent et peut s'écrire : `f(n) = let n expr1 expr2(n)`. Un nouveau type d'expression permet de définir une fonction et un second de l'évaluer avec un argument spécifique passé en paramètre. On peut donc par exemple définir et appliquer une fonction ainsi:
 
