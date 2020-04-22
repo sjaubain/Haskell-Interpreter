@@ -1,4 +1,9 @@
-#Programmation fonctionnelle avancée - Laboratoire 6
+---
+author: Simon Jobin
+date: Avril 2020
+---
+
+# Programmation fonctionnelle avancée - Laboratoire 6
 
 ## Introduction
 
@@ -69,4 +74,12 @@ L'appel d'une fonction à un paramètre ssemble furieusement à l'énoncé préc
 incr = Func "n" (BinaryOp '+' (Str "n") (Const 1))
 res = ApplyFunc incr (Const 4)
 ```
-mais également des fonctions récursives comme nous le verrons dans les exemples d'exécutions. Dans ce cas, la valeur de la variable *n* dans la liste `env` est écrasée à chaque appel récursif. 
+mais également des fonctions récursives comme nous le verrons dans les exemples d'exécutions. Dans ce cas, la valeur de la variable *n* dans la liste `env` est écrasée à chaque appel récursif.
+
+## Exemples d'exécutions
+
+Différentes expressions sont définies à la fin du fichier .hs fourni et permet de visualiser toutes les opérations qui ont été définies. Pour afficher grâce à leurs fonctions *show* respectives ce qu'elles sont responsables de faire, il suffit de taper leurs noms dans la console. Pour afficher leurs réultats, il faut taper `ev expr`, qui est en fait un appel "wrapper" à la fonction `eval` avec une liste vide comme environnement de départ. La figure ci-dessous résume donc toutes ces opérations.
+
+![image](./screen.png)
+
+Notons que l'évaluation de l'expression 2 lève bien une exception car la variable *toto* n'est définie que dans l'expression de gauche (première opérande de la multiplication) et est donc inaccessible dans l'expression de droite (deuxième opérande). L'environnement est bien local à l'expression qui est évaluée puisque une copie de celui-ci est fourni à la fonction d'évaluation de chaque expression. Notons également que la fonction factorielle n'est pas affichée dans l'exemple ci-dessus car cela générerait une boucle infinie d'affichage, la fonction étant récursive.
