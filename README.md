@@ -50,7 +50,7 @@ Let var expr1 expr2
 ```
 
 où l'on attribue le résultat de expr1 à la variable var puis on utilise le résultat dans expr2.
-Pour rendre ceci possible, un environnement propre à chaque expression (local) constitué d'une liste de tuples (clés - valeurs) est passé comme premier argument `env` à la fonction polymorphique.
+Pour rendre ceci possible, un environnement propre à chaque expression (local) constitué d'une liste de tuples (clés - valeurs) est passé comme premier argument `env` à la fonction polymorphique d'évaluation.
 
 Lorsque l'on appelle la fonction d'évaluation sur le type d'expression ci-dessus, expr1 est évaluée, son résultat est inséré grâce à une fonction annexe dans l'environnement (si la variable existe déjà, sa valeur est écrasée sinon ajoutée à la fin de la liste) puis la fonction *eval* est appelée sur expr2 avec l'environnement ainsi mis à jour.
 
@@ -82,4 +82,4 @@ Différentes expressions sont définies à la fin du fichier .hs fourni et perme
 
 ![image](./screen.png)
 
-Notons que l'évaluation de l'expression 2 lève bien une exception car la variable *toto* n'est définie que dans l'expression de gauche (première opérande de la multiplication) et est donc inaccessible dans l'expression de droite (deuxième opérande). L'environnement est bien local à l'expression qui est évaluée puisque une copie de celui-ci est fourni à la fonction d'évaluation de chaque expression. Notons également que la fonction factorielle n'est pas affichée dans l'exemple ci-dessus car cela générerait une boucle infinie d'affichage, la fonction étant récursive.
+Notons que l'évaluation de l'expression 2 lève bien une exception car la variable *toto* n'est définie que dans l'expression de gauche (première opérande de la multiplication) et est donc inaccessible dans l'expression de droite (deuxième opérande). L'environnement est bien local à l'expression qui est évaluée puisque une copie de celui-ci est fourni à la fonction d'évaluation de chaque expression. Notons également que la fonction factorielle n'est pas affichée dans l'exemple ci-dessus car cela générerait une boucle infinie d'affichage, la fonction étant récursive. Son évaluation dans `ev res2` avec la valeur 4 démontre cependant son fonctionnement.
